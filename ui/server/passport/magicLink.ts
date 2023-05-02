@@ -6,6 +6,8 @@ import { createOrGetUser } from "./helpers";
 if (!process.env.MAGIC_LINK_SECRET)
   throw new Error(`Add MAGIC_LINK_SECRET environment variable`);
 
+  console.log(process.env.MAGIC_LINK_SECRET, process.env.DATABASE_URL);
+
 const magicLink = new MagicLoginStrategy({
   secret: process.env.MAGIC_LINK_SECRET,
   callbackUrl: "/api/auth/magiclink/callback",

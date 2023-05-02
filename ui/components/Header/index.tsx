@@ -455,6 +455,9 @@ const Header = ({ currentUser, fetchingUser, group, round, bucket, ss }) => {
                   <NavItem href={`/signup`} roundColor={color} primary>
                     <FormattedMessage defaultMessage="Sign up" />
                   </NavItem>
+                  {/* <NavItem href={`/web3-login`} roundColor={color} primary>
+                    <FormattedMessage defaultMessage="Login with wallet" />
+                  </NavItem> */}
                   <div className="sm:hidden">
                     <hr className="mt-4 mb-2 mx-4 opacity-25" />
                     <LandingPageLinks desktop={false} />

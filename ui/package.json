@@ -20,7 +20,7 @@
     "crowdin:upload": "../scripts/crowdin.sh upload"
   },
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@apollo/client": "^3.4.11",
@@ -81,6 +81,7 @@
     "passport-facebook": "3.0.0",
     "passport-google-oauth20": "2.0.0",
     "passport-magic-login": "^1.0.8",
+    "passport-web3": "^0.1.7",
     "postcss": "^8.2.10",
     "postmark": "2.9.0",
     "prop-types": "^15.7.2",
@@ -116,6 +117,7 @@
     "unist-util-visit": "4.1.0",
     "urql": "2.2.0",
     "validator": "13.7.0",
+    "web3": "^1.9.0",
     "yup": "^0.29.3"
   },
   "devDependencies": {
