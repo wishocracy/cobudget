@@ -22,6 +22,7 @@ model User {
   image            String?
   facebookId       String?        @unique
   googleId         String?        @unique
+  ethAddress        String?        @unique
   acceptedTermsAt  DateTime?
   groupMemberships GroupMember[]
   collMemberships  RoundMember[]

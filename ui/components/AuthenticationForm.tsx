@@ -5,6 +5,7 @@ import TextField from "./TextField";
 import Button from "./Button";
 import Banner from "components/Banner";
 import { FormattedMessage, useIntl } from "react-intl";
+import Web3 from "web3";
 
 export default function AuthenticationForm({
   fbEmailError = false,
@@ -23,9 +24,11 @@ export default function AuthenticationForm({
   const redirect = r?.toString();
   const intl = useIntl();
 
+
+
   return (
     <div>
-      <form
+     <form
         onSubmit={(evt) => {
           evt.preventDefault();
           setLoading(true);
@@ -77,14 +80,26 @@ export default function AuthenticationForm({
         >
           <FormattedMessage defaultMessage="Send magic link" />
         </Button>
-      </form>
+      </form> 
 
-      {(fbLoginEnabled || googleLoginEnabled) && (
+      {(!fbLoginEnabled || googleLoginEnabled) && (
         <div className="w-full h-px bg-gray-300 my-5"></div>
       )}
 
-      {fbLoginEnabled && (
-        <div>
+      {
+        <div className="mt-4">
+          <Button
+            fullWidth
+            href={"/api/auth/web3/"}
+            className="text-center"
+            style={{ backgroundColor: "#040404" }}
+          >
+            <FormattedMessage defaultMessage="Log in with Wallet" />
+          </Button>
+        </div>
+      }
+      {!fbLoginEnabled && (
+        <div className="mt-4">
           {fbEmailError && (
             <Banner
               className={"mb-4"}
@@ -102,7 +117,7 @@ export default function AuthenticationForm({
           )}
           <Button
             fullWidth
-            href={`/api/auth/facebook/?${
+            href={`/api/auth/facebooks/?${
               fbEmailError ? "fb_no_email_scope=true&" : ""
             }remember_me=true&${redirect ? `r=${redirect}` : ""}`}
             className="text-center"
@@ -112,7 +127,7 @@ export default function AuthenticationForm({
           </Button>
         </div>
       )}
-      {googleLoginEnabled && (
+      {!googleLoginEnabled && (
         <div>
           <Button
             fullWidth
@@ -128,4 +143,4 @@ export default function AuthenticationForm({
       )}
     </div>
   );
-}
+};
